@@ -1,3 +1,3 @@
-rootProject.name = 'olx-ads-loader'
+rootProject.name = 'ads-loader'
 
-include 'olx-ads-loader-common'
+include 'ads-loader-common'
