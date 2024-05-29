@@ -1,3 +1,4 @@
 rootProject.name = 'ads-loader'
 
 include 'ads-loader-common'
+include 'ads-loader-service'
