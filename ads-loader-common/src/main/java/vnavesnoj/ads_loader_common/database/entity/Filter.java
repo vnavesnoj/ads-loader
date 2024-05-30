@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.Instant;
+
 /**
  * @author vnavesnoj
  * @mail vnavesnoj@gmail.com
@@ -13,21 +15,18 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@ToString(exclude = "ad")
 @Builder
 @Entity
-@Table(name = "ad_info")
-public class AdInfo {
+@Table(name = "filter")
+public class Filter {
 
     @Id
-    @Column(name = "ad_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "info", nullable = false, columnDefinition = "jsonb")
-    String infoJson;
+    @Column(nullable = false, columnDefinition = "timestamp")
+    Instant instant;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JoinColumn(name = "ad_id")
-    Ad ad;
+    @Column(nullable = false, columnDefinition = "jsonb")
+    String pattern;
 }
