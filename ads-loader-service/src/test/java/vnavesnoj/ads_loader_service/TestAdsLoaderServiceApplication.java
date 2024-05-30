@@ -1,4 +1,4 @@
-package vnavesnoj.adsloaderservice;
+package vnavesnoj.ads_loader_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.TestConfiguration;
