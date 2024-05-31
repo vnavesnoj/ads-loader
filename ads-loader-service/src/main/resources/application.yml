@@ -3,7 +3,7 @@ spring:
     name: ads-loader-service
 
   datasource:
-    url: jdbc:mysql://localhost:5432/ads-loader-bd
+    url: jdbc:postgresql://localhost:5432/ads-loader-bd
     username: postgres
     password: pass
     driver-class-name: org.postgresql.Driver
