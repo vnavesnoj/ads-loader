@@ -2,7 +2,7 @@ package vnavesnoj.ads_loader_service.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
-import vnavesnoj.ads_loader_service.database.repository.AdRepository;
+import vnavesnoj.ads_loader_service.database.repository.FilterAdRepository;
 import vnavesnoj.ads_loader_service.integration.annotation.JpaTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,13 +13,13 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @RequiredArgsConstructor
 @JpaTest
-public class AdRepositoryTest {
+public class FilterAdRepositoryTest {
 
-    private final AdRepository adRepository;
+    private final FilterAdRepository filterAdRepository;
 
     @Test
     void connectionTest() {
-        final var result = adRepository.existsById(-1L);
+        final var result = filterAdRepository.existsById(-1L);
         assertThat(result).isFalse();
     }
 }
