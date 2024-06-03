@@ -1,0 +1,7 @@
+logging:
+  level:
+    root: DEBUG
+#    vnavesnoj.spring.database.pool: DEBUG
+#    org.springframework.jdbc.core: DEBUG
+#    io.r2dbc.postgresql.QUERY: DEBUG
+#    io.r2dbc.postgresql.PARAM: DEBUG
