@@ -1,7 +1,7 @@
 package vnavesnoj.ads_loader_service.integration.annotation;
 
+import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import vnavesnoj.ads_loader_service.integration.config.TestContainersConfig;
@@ -17,9 +17,9 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@DataJpaTest
+@DataR2dbcTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Import(TestContainersConfig.class)
 @ActiveProfiles("it")
-public @interface JpaTest {
+public @interface R2dbcTest {
 }

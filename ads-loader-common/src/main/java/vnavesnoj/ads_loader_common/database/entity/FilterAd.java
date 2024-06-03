@@ -1,8 +1,9 @@
 package vnavesnoj.ads_loader_common.database.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
 
@@ -16,25 +17,15 @@ import java.time.Instant;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Builder
-@Entity
-@Table(
-        name = "filter_ad",
-        uniqueConstraints = @UniqueConstraint(
-                columnNames = {"ad_url", "filter_id"}
-        )
-)
+@Table(name = "filter_ad")
 public class FilterAd {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     Instant instant;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ad_url", referencedColumnName = "url", nullable = false)
-    Ad ad;
+    String ad_href;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    Filter filter;
+    Long filterId;
 }

@@ -1,8 +1,9 @@
 package vnavesnoj.ads_loader_common.database.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 /**
  * @author vnavesnoj
@@ -12,22 +13,13 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-@ToString(exclude = "ad")
+@EqualsAndHashCode(of = "adId")
 @Builder
-@Entity
 @Table(name = "ad_info")
 public class AdInfo {
 
     @Id
-    @Column(name = "ad_id")
-    Long id;
+    Long adId;
 
-    @Column(name = "info", nullable = false, columnDefinition = "jsonb")
     String infoJson;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JoinColumn(name = "ad_id")
-    Ad ad;
 }

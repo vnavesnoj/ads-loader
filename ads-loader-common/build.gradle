@@ -22,8 +22,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'io.hypersistence:hypersistence-utils-hibernate-63:3.7.5'
+	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'

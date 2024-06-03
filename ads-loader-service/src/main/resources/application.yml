@@ -8,24 +8,15 @@ spring:
     password: pass
     driver-class-name: org.postgresql.Driver
 
-  jpa:
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-        hbm2ddl:
-          auto: validate
-        jdbc:
-          batch_size: 50
-          fetch_size: 50
-        c3p0:
-          timeout: 10000
-    open-in-view: false
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-  session:
-    jdbc:
-      initialize-schema: always
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/ads-loader-bd
+    username: postgres
+    password: pass
+
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
 
 logging:
   level:

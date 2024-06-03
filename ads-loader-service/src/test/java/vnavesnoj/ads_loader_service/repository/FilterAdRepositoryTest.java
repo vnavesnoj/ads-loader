@@ -3,7 +3,7 @@ package vnavesnoj.ads_loader_service.repository;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import vnavesnoj.ads_loader_service.database.repository.FilterAdRepository;
-import vnavesnoj.ads_loader_service.integration.annotation.JpaTest;
+import vnavesnoj.ads_loader_service.integration.annotation.R2dbcTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,14 +12,14 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @mail vnavesnoj@gmail.com
  */
 @RequiredArgsConstructor
-@JpaTest
+@R2dbcTest
 public class FilterAdRepositoryTest {
 
     private final FilterAdRepository filterAdRepository;
 
     @Test
     void connectionTest() {
-        final var result = filterAdRepository.existsById(-1L);
+        final var result = filterAdRepository.existsById(-1L).block();
         assertThat(result).isFalse();
     }
 }

@@ -1,8 +1,9 @@
 package vnavesnoj.ads_loader_common.database.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
 
@@ -16,17 +17,15 @@ import java.time.Instant;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Builder
-@Entity
 @Table(name = "filter")
 public class Filter {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(nullable = false, columnDefinition = "timestamp")
     Instant instant;
 
-    @Column(nullable = false, columnDefinition = "jsonb")
+    Platform platform;
+
     String pattern;
 }

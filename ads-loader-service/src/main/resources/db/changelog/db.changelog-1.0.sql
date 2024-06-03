@@ -22,9 +22,10 @@ CREATE TABLE ad_info
 --changeset vnavesnoj:3
 CREATE TABLE filter
 (
-    id      BIGSERIAL PRIMARY KEY,
-    instant TIMESTAMP NOT NULL,
-    pattern JSONB     NOT NULL
+    id       BIGSERIAL PRIMARY KEY,
+    instant  TIMESTAMP  NOT NULL,
+    platform VARCHAR(7) NOT NULL,
+    pattern  JSONB      NOT NULL
 );
 
 --changeset vnavesnoj:4

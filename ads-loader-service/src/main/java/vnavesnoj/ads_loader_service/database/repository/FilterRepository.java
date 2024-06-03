@@ -1,6 +1,6 @@
 package vnavesnoj.ads_loader_service.database.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import vnavesnoj.ads_loader_common.database.entity.Filter;
 
 /**
@@ -8,5 +8,5 @@ import vnavesnoj.ads_loader_common.database.entity.Filter;
  * @mail vnavesnoj@gmail.com
  */
 
-public interface FilterRepository extends JpaRepository<Filter, Long> {
+public interface FilterRepository extends ReactiveCrudRepository<Filter, Long> {
 }

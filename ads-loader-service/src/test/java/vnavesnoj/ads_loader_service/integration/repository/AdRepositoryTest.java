@@ -1,9 +1,9 @@
-package vnavesnoj.ads_loader_service.repository;
+package vnavesnoj.ads_loader_service.integration.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import vnavesnoj.ads_loader_service.database.repository.AdRepository;
-import vnavesnoj.ads_loader_service.integration.annotation.R2dbcTest;
+import vnavesnoj.ads_loader_service.integration.annotation.IT;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @mail vnavesnoj@gmail.com
  */
 @RequiredArgsConstructor
-@R2dbcTest
+@IT
 public class AdRepositoryTest {
 
     private final AdRepository adRepository;
