@@ -15,7 +15,7 @@ import java.time.Instant;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = {"adUrl", "filterId"})
 @Builder
 @Table(name = "filter_ad")
 public class FilterAd {
@@ -25,7 +25,7 @@ public class FilterAd {
 
     Instant instant;
 
-    String ad_href;
+    String adUrl;
 
     Long filterId;
 }
