@@ -7,8 +7,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import vnavesnoj.ads_loader_common.database.entity.Ad;
 
-import java.util.List;
-
 /**
  * @author vnavesnoj
  * @mail vnavesnoj@gmail.com
@@ -31,5 +29,5 @@ public interface AdRepository extends ReactiveCrudRepository<Ad, Long> {
             JOIN filter_ad fa on a.url = fa.ad_url
             WHERE fa.filter_id in (:filterIds)
             """)
-    Flux<Ad> findAllByFilterIds(@Param("filterIds") List<Long> filterIds);
+    Flux<Ad> findAllByFilterIds(@Param("filterIds") Iterable<Long> filterIds);
 }

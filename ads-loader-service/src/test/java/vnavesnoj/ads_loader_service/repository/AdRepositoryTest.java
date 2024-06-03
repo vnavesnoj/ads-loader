@@ -1,19 +1,15 @@
 package vnavesnoj.ads_loader_service.repository;
 
-import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.r2dbc.core.DatabaseClient;
 import reactor.test.StepVerifier;
 import vnavesnoj.ads_loader_common.database.entity.Ad;
 import vnavesnoj.ads_loader_common.database.entity.Platform;
 import vnavesnoj.ads_loader_service.database.repository.AdRepository;
 import vnavesnoj.ads_loader_service.integration.annotation.R2dbcTest;
+import vnavesnoj.ads_loader_service.tool.SimpleTestDataInjection;
 
-import java.nio.charset.Charset;
 import java.time.Instant;
 import java.util.List;
 
@@ -23,31 +19,15 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author vnavesnoj
  * @mail vnavesnoj@gmail.com
  */
-@RequiredArgsConstructor
 @R2dbcTest
-public class AdRepositoryTest {
+public class AdRepositoryTest extends SimpleTestDataInjection {
 
     private final AdRepository adRepository;
-    private final DatabaseClient databaseClient;
 
-    @SneakyThrows
-    @BeforeEach
-    void insertData() {
-        final var insertScript = new ClassPathResource("insert-data.sql")
-                .getContentAsString(Charset.defaultCharset());
-        databaseClient.sql(insertScript)
-                .then()
-                .block();
-    }
-
-    @SneakyThrows
-    @AfterEach
-    void deleteAllData() {
-        final var deleteScript = new ClassPathResource("delete-data.sql")
-                .getContentAsString(Charset.defaultCharset());
-        databaseClient.sql(deleteScript)
-                .then()
-                .block();
+    public AdRepositoryTest(@Autowired AdRepository adRepository,
+                            @Autowired DatabaseClient databaseClient) {
+        super(databaseClient);
+        this.adRepository = adRepository;
     }
 
     @Test

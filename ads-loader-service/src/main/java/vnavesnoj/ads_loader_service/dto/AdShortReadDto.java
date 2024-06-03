@@ -10,13 +10,17 @@ import java.time.Instant;
  * @mail vnavesnoj@gmail.com
  */
 @Value
-public class AdReadDto {
+public class AdShortReadDto {
+
+    Long id;
 
     Platform platform;
 
     String url;
 
-    String adInfoJson;
+    String title;
+
+    Instant pushupTime;
 
     Instant instant;
 }
