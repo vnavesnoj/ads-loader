@@ -34,6 +34,6 @@ CREATE TABLE filter_ad
     id        BIGSERIAL PRIMARY KEY,
     instant   TIMESTAMP    NOT NULL,
     ad_url    VARCHAR(255) NOT NULL REFERENCES ad (url),
-    filter_id BIGINT       NOT NULL REFERENCES filter,
+    filter_id BIGINT       NOT NULL REFERENCES filter ON DELETE CASCADE,
     UNIQUE (ad_url, filter_id)
 );
