@@ -6,8 +6,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import vnavesnoj.ads_loader_common.database.entity.Ad;
 import vnavesnoj.ads_loader_service.database.repository.AdRepository;
+import vnavesnoj.ads_loader_service.dto.AdMetaInfoReadDto;
 import vnavesnoj.ads_loader_service.dto.AdReadDto;
-import vnavesnoj.ads_loader_service.dto.AdShortReadDto;
 import vnavesnoj.ads_loader_service.mapper.Mapper;
 import vnavesnoj.ads_loader_service.service.AdService;
 
@@ -21,20 +21,20 @@ public class AdServiceImpl implements AdService {
 
     private final AdRepository adRepository;
 
-    private final Mapper<Ad, AdShortReadDto> adShortReadMapper;
+    private final Mapper<Ad, AdMetaInfoReadDto> adMetaInfoReadMapper;
     private final Mapper<Ad, AdReadDto> adReadMapper;
 
 
     @Override
-    public Flux<AdShortReadDto> findAllByFilterId(Long filterId) {
+    public Flux<AdMetaInfoReadDto> findAllByFilterId(Long filterId) {
         return adRepository.findAllByFilterId(filterId)
-                .map(adShortReadMapper::map);
+                .map(adMetaInfoReadMapper::map);
     }
 
     @Override
-    public Flux<AdShortReadDto> findAllByFilterIds(Iterable<Long> filterIds) {
+    public Flux<AdMetaInfoReadDto> findAllByFilterIds(Iterable<Long> filterIds) {
         return adRepository.findAllByFilterIds(filterIds)
-                .map(adShortReadMapper::map);
+                .map(adMetaInfoReadMapper::map);
     }
 
     @Override

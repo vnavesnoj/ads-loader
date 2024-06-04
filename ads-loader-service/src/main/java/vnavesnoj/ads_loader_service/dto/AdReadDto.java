@@ -1,9 +1,6 @@
 package vnavesnoj.ads_loader_service.dto;
 
 import lombok.Value;
-import vnavesnoj.ads_loader_common.database.entity.Platform;
-
-import java.time.Instant;
 
 /**
  * @author vnavesnoj
@@ -12,11 +9,7 @@ import java.time.Instant;
 @Value
 public class AdReadDto {
 
-    Platform platform;
-
-    String url;
+    AdMetaInfoReadDto adMetaInfo;
 
     String adInfoJson;
-
-    Instant instant;
 }
